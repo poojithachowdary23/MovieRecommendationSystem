@@ -1,0 +1,7 @@
+venv/
+ml-100k/
+ml-latest-small/
+ml-100k.zip
+__pycache__/
+*.pyc
+.streamlit/
