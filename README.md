@@ -1,41 +1,64 @@
-# 🎬 Movie Recommendation System (Streamlit Web App)
+# Movie Recommendation System
 
-A simple and interactive **Movie Recommender Web App** built using **Python, Streamlit, Pandas, and Scikit-learn**.  
-This project uses **Item-Based Collaborative Filtering** and calculates **cosine similarity** between movies based on user ratings from the **MovieLens 100k dataset**.
-
-The web app allows users to:
-- Select a movie from a dropdown list
-- Choose how many recommendations they want
-- View top similar movies instantly
-
-Deployed using **Streamlit Cloud**.
+This is a simple Movie Recommendation System built using Python, Streamlit, Pandas, and Scikit-learn.  
+The system recommends similar movies based on cosine similarity between movie rating patterns.  
+The dataset used is MovieLens 100k, which is downloaded automatically by the application.
 
 ---
 
-## 🚀 Features
-- User-friendly web interface built with **Streamlit**
-- Movie dropdown selector
-- Adjustable number of recommendations (1–20)
-- Automatic dataset download (MovieLens 100k)
-- Cosine similarity-based recommendations
-- Clean and minimal UI
-- Deployable online via GitHub + Streamlit Cloud
+## Features
+- Simple web interface using Streamlit  
+- Select a movie from a dropdown  
+- Choose how many recommendations you want  
+- Shows top similar movies  
+- Uses item-based collaborative filtering  
+- Easy to deploy and run  
 
 ---
 
-## 🧠 How It Works
+## Flowchart (How the system works)
 
-### 1. **Dataset**
-The app downloads the **MovieLens 100k** dataset:
-- `u.data` → user ratings  
-- `u.item` → movie titles  
+                   +------------------------+
+                   |      User selects      |
+                   |       a movie          |
+                   +-----------+------------+
+                               |
+                               v
+                   +------------------------+
+                   | Load MovieLens dataset |
+                   |   (movie ratings)      |
+                   +-----------+------------+
+                               |
+                               v
+                   +------------------------+
+                   | Create movie-user      |
+                   | rating matrix          |
+                   +-----------+------------+
+                               |
+                               v
+                   +------------------------+
+                   | Compute cosine         |
+                   | similarity between     |
+                   | all movies             |
+                   +-----------+------------+
+                               |
+                               v
+                   +------------------------+
+                   | Sort similarity scores |
+                   | and take top results   |
+                   +-----------+------------+
+                               |
+                               v
+                   +------------------------+
+                   | Display recommended    |
+                   | movies in Streamlit    |
+                   +------------------------+
 
-### 2. **Preprocessing**
-- Creates a **movie-user rating matrix**
-- Fills missing ratings with 0
-- Converts movie IDs to movie titles
+---
 
-### 3. **Cosine Similarity**
-We compute **item–item similarity**:
-```python
-similarity = cosine_similarity(movie_user_matrix)
+## How to Run Locally
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/YOUR_USERNAME/MovieRecommendationSystem.git
+cd MovieRecommendationSystem
